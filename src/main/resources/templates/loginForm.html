@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="header.css">
+<link rel="stylesheet" href="loginForm.css">
+<title>my Book Shelf</title>
+</head>
+<body>
+
+	<header class="site-header">
+		<div class="wrapper site-header_wrapper">
+			<a class="brand">My Book Shelf</a>
+			<nav class="nav">
+				<ul class="nav_wrapper">
+					<li class="nav_item"><a href="/readme">このアプリケーションについて</a></li>
+					<li class="nav_item"><a href="https://github.com/suzuki1108">制作者のGitHub</a></li>
+				<ul>
+			</nav>
+		</div>
+	</header>
+
+	<form th:action="@{/login}" th:object="${userInfoBean}" method="post">
+		<h1>My Book Shelf</h1>
+		<span th:text="${loginError}"></span> <span th:text="${registResult}"></span>
+		<input type="text" placeholder="LoginID" th:field="*{loginId}">
+		<input type="text" placeholder="Password" th:field="*{passWord}">
+		<button type="submit">ログイン</button>
+		<a href="/createAccount">新規登録</a>
+	</form>
+
+	<footer>
+		<h2>©Shota Suzuki.2020.12</h2>
+	</footer>
+</body>
+</html>

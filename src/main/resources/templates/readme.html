@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="header.css">
+<link rel="stylesheet" href="loginForm.css">
+<link rel="stylesheet" href="description.css">
+<title>my Book Shelf</title>
+</head>
+<body>
+
+	<header class="site-header">
+		<div class="wrapper site-header_wrapper">
+			<a class="brand">My Book Shelf</a>
+			<nav class="nav">
+				<ul class="nav_wrapper">
+					<li class="nav_item"><a href="/createAccount">新規登録</a></li>
+					<li class="nav_item"><a href="/">ログイン</a></li>
+					<li class="nav_item"><a href="https://github.com/suzuki1108">制作者のGitHub</a></li>
+				<ul>
+			</nav>
+		</div>
+	</header>
+	<div class="description">
+		<h1>このアプリケーションについて</h1>
+		<p>このアプリケーションは、制作者のエンジニア学習の成果物として作成されたものです。</p>
+		<p>個人の制作物ですので、個人を特定できる情報などの保存はご遠慮ください。</p>
+		<p>※いたずらや、悪い使いかたもしないでください。</p>
+		<br>
+		<h2>アプリケーションの概要</h2>
+		<p>このアプリケーションは、制作者が本を買うときに、「あれ？この本持ってなかったっけ？」</p>
+		<p>と疑心暗鬼になったことから生まれた本棚管理アプリケーションです。</p>
+		<p>検索窓から本を検索し、本棚に追加することで、自分だけの本棚を作成することができます。</p>
+		<p>※本が読めるわけではありません。</p>
+		<p>現在の機能は本の検索、追加、削除、本棚の追加のみですが、</p>
+		<p>今後は他のユーザの本棚を覗きに行けるような機能も追加しようと思っています。</p>
+		<br>
+		<h2>使用言語、フレームワーク</h2>
+		<ul>
+			<li>Java8</li>
+			<li>Spring Boot(Thymeleaf,MVC,DataJPA)</li>
+			<li>HTML</li>
+			<li>CSS</li>
+		</ul>
+		<br>
+		<h2>データベース、サーバー、利用API</h2>
+		<ul>
+			<li>Heroku</li>
+			<li>PostgreSQL</li>
+			<li>楽天ブックスAPI</li>
+		</ul>
+	</div>
+
+
+	<footer>
+		<h2>©Shota Suzuki.2020.12</h2>
+	</footer>
+</body>
+</html>

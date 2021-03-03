@@ -1,0 +1,17 @@
+.description{
+	font-size: 20px;
+	color: #DDD;
+}
+
+.description h1{
+	color: #2a3644;
+}
+
+.description h2{
+	color: #2a3644;
+}
+
+body{
+	background-color: rgba(255,255,255,0.2);
+	background-blend-mode: lighten;
+}

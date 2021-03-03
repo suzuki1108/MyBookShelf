@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="header.css">
+<link rel="stylesheet" href="mainMenu.css">
+
+<link
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet">
+
+<title>my Book Shelf</title>
+</head>
+<body>
+	<div class="container">
+		<header class="site-header">
+			<div class="wrapper site-header_wrapper">
+				<a class="brand">My Book Shelf</a>
+				<nav class="nav">
+					<ul class="nav_wrapper">
+						<form method="post" th:action="@{/myBookShelf}">
+							<li class="nav_item"><a><button type="submit">本棚を見る</button></a></li>
+						</form>
+						<br>
+						<br>
+						<br>
+						<form method="post" th:action="@{/logout}">
+							<li class="nav_item"><a><button type="submit">ログアウト</button></a></li>
+						</form>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<a th:text="${session.userName}"></a>
+		<br>
+		<div class="menu">
+			<div class="search">
+				<form method="get" th:action="@{/searchBook}"
+					class="search_container">
+					<input type="text" size="25" name="searchTitle"
+						placeholder="本棚に追加したい本を検索"> <input type="submit"
+						value="&#xf002">
+				</form>
+			</div>
+			<br>
+			<div class="sort">
+				<form method="post" th:action="@{/sortBook}">
+					<select name="sortType">
+						<option value="titleAsc">タイトル順(昇順)</option>
+						<option value="titleDesc">タイトル順(降順)</option>
+						<option value="dateAsc">発売日順（昇順）</option>
+						<option value="dateDesc">発売日順（降順）</option>
+						<option value="priceAsc">価格順（昇順）</option>
+						<option value="priceDesc">価格順（降順）</option>
+					</select>
+					<button class="button" type="submit">並び替え</button>
+				</form>
+			</div>
+		</div>
+		<h1>
+			<span th:text="${myBookIsEmpty}"></span>
+		</h1>
+		<h1>
+			<span th:text="${searchBookResultText}"></span>
+		</h1>
+
+		<form method="post" th:action="@{/showBook}">
+			<div class="books">
+				<div class="book" th:each="myBook, stat : ${session.myBookList}">
+					<button type="submit" name="bookNumber" th:value="${stat.index}">
+						<img th:src="${myBook.getImgPath()}">
+					</button>
+					<a th:text="${myBook.getBookTitle()}"></a>
+				</div>
+			</div>
+		</form>
+
+		<br>
+		<br>
+		<footer>
+			<h2>©Shota Suzuki.2020.12</h2>
+		</footer>
+	</div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+web: java -Dserver.port=$PORT -jar target/suzuki-portfolio-0.0.1-SNAPSHOT.jar

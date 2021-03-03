@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="header.css">
+<link rel="stylesheet" href="mainMenu.css">
+
+<link
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet">
+
+<title>my Book Shelf</title>
+</head>
+<body>
+	<div class="container">
+		<header class="site-header">
+			<div class="wrapper site-header_wrapper">
+				<a class="brand">My Book Shelf</a>
+				<nav class="nav">
+					<ul class="nav_wrapper">
+						<form method="post" th:action="@{/myBookShelf}">
+							<li class="nav_item"><a><button type="submit">本棚を見る</button></a></li>
+						</form>
+						<br>
+						<br>
+						<br>
+						<form method="post" th:action="@{/logout}">
+							<li class="nav_item"><a><button type="submit">ログアウト</button></a></li>
+						</form>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<div class="menu">
+			<div class="search">
+				<form method="get" th:action="@{/searchBook}"
+					class="search_container">
+					<input type="text" size="25" name="searchTitle"
+						placeholder="本棚に追加したい本を検索"> <input type="submit"
+						value="&#xf002">
+				</form>
+			</div>
+		</div>
+		<div class="bookInfo">
+			<div class="imgPath">
+				<img th:src="${bigImgPath}">
+			</div>
+			<div class="detail">
+				<h2>
+					タイトル：<a class="bookDetail"
+						th:text="${session.showBook.getBookTitle()}"></a>
+				</h2>
+				<h2>
+					タイトル（カナ）：<a class="bookDetail"
+						th:text="${session.showBook.getBookTitleKana()}"></a>
+				</h2>
+				<h2>
+					著者：<a class="bookDetail" th:text="${session.showBook.getAuthor()}"></a>
+				</h2>
+				<h2>
+					発売日：<a class="bookDetail"
+						th:text="${session.showBook.getSalesDate()}"></a>
+				</h2>
+				<h2>
+					説明：<a class="bookDetail"
+						th:text="${session.showBook.getDescription()}"></a>
+				</h2>
+				<h2>
+					値段：<a class="bookDetail" th:text="${price}"></a>
+				</h2>
+			</div>
+		</div>
+		<div class="button">
+			<div th:if="${!addFlag}">
+				<form method="post" th:action="@{/registBook}">
+					<button type="submit">本棚に追加</button>
+				</form>
+			</div>
+
+			<div th:if="${addFlag}">
+				<form method="post" th:action="@{/removeBook}">
+					<button type="submit">本棚から削除</button>
+				</form>
+			</div>
+		</div>
+		<br>
+		<br>
+		<footer>
+			<h2>©Shota Suzuki.2020.12</h2>
+		</footer>
+	</div>
+</body>
+</html>

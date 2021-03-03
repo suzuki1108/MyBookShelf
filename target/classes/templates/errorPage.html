@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="header.css">
+<link rel="stylesheet" href="loginForm.css">
+<title>my Book Shelf</title>
+</head>
+<body>
+
+	<header class="site-header">
+		<div class="wrapper site-header_wrapper">
+			<a class="brand">My Book Shelf</a>
+			<nav class="nav">
+				<ul class="nav_wrapper">
+					<li class="nav_item"><a href="https://github.com/suzuki1108">制作者のGitHub</a></li>
+				<ul>
+			</nav>
+		</div>
+	</header>
+	<a>大変申し訳ございません。処理途中にエラーが発生しましたので、最初からやり直してください。</a>
+	<form th:action="@{/logout}" method="post">
+		<button type="submit">ログイン画面に戻ります。</button>
+	</form>
+
+	<footer>
+		<h2>©Shota Suzuki.2020.12</h2>
+	</footer>
+</body>
+</html>
