@@ -16,7 +16,7 @@ import lombok.Data;
 @Data
 @Table(name = "book")
 public class BookBean implements Serializable {
-
+//test
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "book_id")
